@@ -13,3 +13,12 @@ for (let i=0; i< primos.length; i++){
 }
 let promedio= sum/primos.length;
 console.log(`El promedio es: ${promedio}, la suma es ${sum}, el numero menor es ${menor}, el numero mayor es ${mayor}`);
+
+function generarAsteriscos(n){
+    let asterisco="";
+    for (let i=0; i<n;i++){
+        asterisco= asterisco+"*";
+    }
+    return asterisco;
+}
+console.log(generarAsteriscos(5));
