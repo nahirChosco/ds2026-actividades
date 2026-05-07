@@ -1,0 +1,25 @@
+.hero{
+  
+    background-image: url('../imagenes/fotoHero.jpg'); 
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    
+    background-color: rgba(0, 0, 0, 0.6);
+    background-blend-mode: multiply;
+
+    text-align: center;
+    color: white;
+    padding: 6rem 0; 
+}
+
+.heroTitulo {
+    font-size: 3.5rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+}
+
+.heroTexto {
+    font-size: 1.25rem;
+    margin-bottom: 2rem;
+}
