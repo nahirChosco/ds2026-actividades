@@ -25,6 +25,22 @@
     </div>
   </div>
 </nav>
+
+<div class="container my-5">
+    <h2 class="text-center mb-4">Catálogo Dinámico</h2>
+    
+    <div class="d-flex justify-content-center mb-5 w-75 mx-auto">
+        
+        <input class="form-control me-2 form-control-lg" type="search" placeholder="Ingresa el título de un libro..." aria-label="Search" id="input"/>
+        
+        <button class="btn btn-outline-success btn-lg px-4" type="button" id="boton">Buscar</button>
+        
+    </div>
+
+    <div id="resultados" class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+    </div>
+</div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="./js/data.js"></script>
 </body>
 </html>
