@@ -25,6 +25,34 @@
     </div>
   </div>
 </nav>
+ <div class="container"> 
+<form>
+   <div class="mb-3">
+    <label for="nombreUsuario" class="form-label">nombre</label>
+    <input type="text" class="form-control" id="nombre" required>
+  </div>
+
+  <div class="mb-3">
+    <label for="exampleInputEmail1" class="form-label">Email</label>
+    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" required>
+    <div id="emailHelp" class="form-text">No compartiremos tu direccion de email con nadie.</div>
+  </div>
+  <div class="mb-3">
+    <label for="opciones" class="form-label">seleccione el asunto</label>
+    <select class="form-label" id="opciones" required>
+    <option value="consulta">Consulta</option>
+    <option value="reclamo">Reclamo</option>
+    <option value="sugerencia">Sugerencia</option>
+    </select>
+  </div>
+  <div class="mb-4">
+      <label for="mensaje" class="form-label">Mensaje</label>
+      <textarea class="form-control" id="mensaje" rows="4" required></textarea>
+    </div>
+  
+  <button type="submit" class="btn btn-primary">Enviar</button>
+</form>
+</div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
