@@ -17,6 +17,7 @@ async function obtenerLibros(val) {
 const input = document.querySelector("#input");
 const boton = document.querySelector("#boton");
 const result = document.querySelector("#resultados");
+
 if (boton && input && result) {
     boton.addEventListener("click", async () => {
         let valor = input.value;
@@ -28,6 +29,7 @@ if (boton && input && result) {
         const libros = await obtenerLibros(valor);
         const diezlibros = libros.slice(0, 10);
         result.textContent = "";
+        
         diezlibros.forEach(libro => {
             result.innerHTML += `
       <div class="col">
@@ -40,8 +42,7 @@ if (boton && input && result) {
             <h5 class="card-title">${libro.title}</h5>
             
             <p class="card-text text-muted">${libro.author_name ? libro.author_name.join(", ") : "Autor Desconocido"}</p>
-            
-    
+            <a href="libro.html?titulo=${encodeURIComponent(libro.title)}" class="btn btn-primary mt-auto">Ver mas</a>
           </div>
         </div>
       </div>
@@ -49,3 +50,4 @@ if (boton && input && result) {
         });
     });
 }
+

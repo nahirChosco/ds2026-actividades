@@ -1,51 +1,57 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Libro</title>
+    <title>Detalle del Libro</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css">
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg bg-body-tertiary">
-  <div class="container-fluid">
-     <a class="navbar-brand" href="index.html">
-      <img src="./imagenes/download.jpg" alt="Logo" width="40" height="24" class="d-inline-block align-text-top">
-      Libreria
-    </a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-      <div class="navbar-nav">
-        <a class="nav-link" aria-current="page" href="index.html">Inicio</a>
-        <a class="nav-link" aria-current="page" href="catalogo.html">Catalogo</a>
-        <a class="nav-link" aria-current="page" href="contacto.html">Contacto</a>
-      </div>
-    </div>
-  </div>
-</nav>
-
-<div class="card mb-3" style="max-width: 1100px;">
-  <div class="row g-0">
-    <div class="col-md-4">
-      <img src="./imagenes/dune.png" class="img-fluid rounded-start" alt="dune">
-    </div>
-    <div class="col-md-8">
-      <div class="card-body">
-        <h5 class="card-title">Dune</h5>
-        <h6 class="card-autor">Frank Herber</h5>
-        <h3 class="card-precio">$54990</h5>
-        <p class="card-text">En el desértico planeta Arrakis, el agua es el bien más preciado y llorar a los muertos, el símbolo de máxima prodigalidad. Pero algo hace de Arrakis una pieza estratégica para los intereses del Emperador, las Grandes Casas y la Cofradía, los tres grandes poderes de la galaxia. Arrakis es el único origen conocido de la melange, preciosa especia y uno de los bienes más codiciados del universo.
-
-Al duque Leto Atreides se le asigna el gobierno de este mundo inhóspito, habitado por los indómitos Fremen y monstruosos gusanos de arena de centenares de metros de longitud. Sin embargo, cuando la familia es traicionada, su hijo y heredero, Paul, emprenderá un viaje hacia un destino más grande del que jamás hubiese podido soñar.</p>
-        <button class="btn btn-primary">Comprar</button>
-        <a href="catalogo.html" class="btn btn-secondary">Volver al catálogo</a>
-      </div>
-    </div>
-  </div>
-</div>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
     
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+      <div class="container-fluid">
+         <a class="navbar-brand" href="index.html">
+          <img src="./imagenes/download.jpg" alt="Logo" width="40" height="24" class="d-inline-block align-text-top">
+          Libreria
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+          <div class="navbar-nav">
+            <a class="nav-link" aria-current="page" href="index.html">Inicio</a>
+            <a class="nav-link" aria-current="page" href="catalogo.html">Catalogo</a>
+            <a class="nav-link" aria-current="page" href="contacto.html">Contacto</a>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <div class="container my-5">
+        
+        <div class="card mb-3 mx-auto shadow-sm" style="max-width: 1100px;">
+          <div class="row g-0">
+            <div class="col-md-4">
+              <img src="./imagenes/download.jpg" id="detalle-img" class="img-fluid rounded-start" alt="Portada" style="height: 100%; object-fit: cover;">
+            </div>
+            <div class="col-md-8">
+              <div class="card-body p-5">
+                <h1 class="card-title fw-bold" id="detalle-titulo">Cargando libro...</h1>
+                <h4 class="text-muted mb-4" id="detalle-autor">Buscando autor...</h4>
+                <h3 class="fw-bold text-success mb-4">$35.000</h3> 
+                <p class="card-text fs-5 mb-4" id="detalle-desc">
+                  Conectando con la base de datos para obtener la información de esta obra...
+                </p>
+                
+                <button class="btn btn-primary btn-lg px-4">Comprar</button>
+                <a href="catalogo.html" class="btn btn-outline-secondary btn-lg px-4">Volver al catálogo</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+    </div> <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <script src="./js/detalleLibro.js"></script>
 </body>
 </html>
