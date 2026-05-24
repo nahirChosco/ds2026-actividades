@@ -13,7 +13,6 @@ import AppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
 import Box from '@mui/material/Box';
 import MenuBookIcon from '@mui/icons-material/MenuBook';
-
 import './App.css';
 function Navbar() {
   return (
