@@ -1,0 +1,45 @@
+
+.navbar-fondo {
+  background-color: white !important;
+  color: black !important;
+}
+
+.navbar-icono {
+  color: #d32f2f !important;
+  margin-right: 10px;
+}
+
+.navbar-titulo {
+  font-weight: bold !important;
+  margin-right: 30px;
+}
+
+.navbar-enlaces {
+  display: flex;
+  gap: 15px;
+}
+
+.btn-enlace {
+  color: #666 !important;
+  text-transform: none !important;
+}
+
+.hero {
+  height: 400px;
+  background-image: url('https://images.unsplash.com/photo-1507842217343-583bb7270b66?q=80&w=2000');
+  background-size: cover; 
+  background-position: center;
+  display: flex;
+  flex-direction: column; 
+  justify-content: center; 
+  align-items: center; 
+  text-align: center;
+  background-color: rgba(0, 0, 0, 0.6);
+  background-blend-mode: overlay;
+  padding: 20px;
+}
+
+.texto {
+  color: white;
+  margin-bottom: 15px ;
+}
