@@ -1,3 +1,4 @@
+import {Link} from 'react-router-dom';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import AppBar from '@mui/material/AppBar';
@@ -17,8 +18,8 @@ export default function Header() {
         </Typography>
 
         <Box className="navbar-enlaces">
-          <Button className="btn-enlace">Inicio</Button>
-          <Button className="btn-enlace">Catálogo</Button>
+          <Button className="btn-enlace" component={Link} to="/">Inicio</Button>
+          <Button className="btn-enlace" component={Link} to="/catalogo">Catálogo</Button>
           <Button className="btn-enlace">Contacto</Button>
         </Box>
 
