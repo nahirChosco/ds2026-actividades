@@ -1,10 +1,7 @@
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import { Grid, Container } from '@mui/material';
-import AppBar from '@mui/material/AppBar';
-import Toolbar from '@mui/material/Toolbar';
 import Box from '@mui/material/Box';
-import MenuBookIcon from '@mui/icons-material/MenuBook';
 import LibroCard from '../components/LibroCard'
 import '../App.css'
 
@@ -29,27 +26,7 @@ const libros = [
 }
 ];
 
-function Navbar() {
-  return (
-    <AppBar position="static" className="navbar-fondo">
-      <Toolbar>
-        
-        <MenuBookIcon className="navbar-icono" />
-        
-        <Typography variant="h6" component="div" className="navbar-titulo">
-          Librería
-        </Typography>
 
-        <Box className="navbar-enlaces">
-          <Button className="btn-enlace">Inicio</Button>
-          <Button className="btn-enlace">Catálogo</Button>
-          <Button className="btn-enlace">Contacto</Button>
-        </Box>
-
-      </Toolbar>
-    </AppBar>
-  );
-}
 function Hero() {
   return (
     <Box className="hero">
@@ -71,7 +48,6 @@ export default function Home() {
 
   return (
     <>
-    < Navbar />
     < Hero />
     <Container sx={{marginY:5}}>
       <Grid container spacing={4}>
