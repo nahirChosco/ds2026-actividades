@@ -1,7 +1,6 @@
 import { prisma } from "../config/prisma";
 import { Prisma } from "../generated/prisma/client";
 
-// Tipos dinámicos generados por Prisma
 export type LibroConAutor = Prisma.LibroGetPayload<{ 
   include: { autor: true } 
 }>;
@@ -23,7 +22,6 @@ export async function findById(id: number): Promise<LibroDetalle | null> {
   });
 }
 
-// Usamos los inputs nativos de Prisma temporalmente hasta agregar Zod
 export async function create(datos: Prisma.LibroUncheckedCreateInput): Promise<LibroDetalle> {
   return prisma.libro.create({ 
     data: datos,
