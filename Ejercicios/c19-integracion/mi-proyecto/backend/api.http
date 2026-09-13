@@ -1,0 +1,187 @@
+@baseUrl = http://localhost:3000
+
+### ENDPOINTS DE AUTENTICACIÓN
+
+### Registrar un nuevo usuario
+POST {{baseUrl}}/api/auth/registro
+Content-Type: application/json
+
+{
+  "nombre": "Nahiara Admin",
+  "email": "admin@libreria.test",
+  "password": "Admin1234"
+}
+
+### Iniciar sesión como Admin (Captura el token)
+# @name login
+POST {{baseUrl}}/api/auth/login
+Content-Type: application/json
+
+{
+  "email": "admin@libreria.test",
+  "password": "Admin1234"
+}
+
+### Obtener el perfil del usuario autenticado 
+GET {{baseUrl}}/api/auth/yo
+Authorization: Bearer {{login.response.body.token}}
+
+
+### ENDPOINTS DE AUTORES
+
+### Listar todos los autores
+GET {{baseUrl}}/api/autores
+
+### Obtener un autor por ID
+GET {{baseUrl}}/api/autores/1
+
+### Crear un nuevo autor (Requiere Token)
+POST {{baseUrl}}/api/autores
+Authorization: Bearer {{login.response.body.token}}
+Content-Type: application/json
+
+{
+  "nombre": "Isaac Asimov",
+  "nacionalidad": "Rusa"
+}
+
+### Modificar un autor (Requiere Token)
+PUT {{baseUrl}}/api/autores/1
+Authorization: Bearer {{login.response.body.token}}
+Content-Type: application/json
+
+{
+  "nombre": "Isaac Asimov",
+  "nacionalidad": "Estadounidense"
+}
+
+### Eliminar un autor (Requiere Token)
+DELETE {{baseUrl}}/api/autores/1
+Authorization: Bearer {{login.response.body.token}}
+
+### ENDPOINTS DE LIBROS
+
+### Listar todos los libros
+GET {{baseUrl}}/api/libros/
+
+### Obtener un libro por ID 
+GET {{baseUrl}}/api/libros/1
+
+### Crear un nuevo libro (Requiere Token - siempre crear el autor primero)
+POST {{baseUrl}}/api/libros
+Authorization: Bearer {{login.response.body.token}}
+Content-Type: application/json
+
+{
+  "titulo": "El fin de la eternidad",
+  "autorId": 2,
+  "imagen": "https://ejemplo.com/eternidad.jpg",
+  "descripcion": "Un viaje en el tiempo administrado por una organización llamada la Eternidad."
+}
+
+### Modificar un libro existente (Requiere Token)
+PUT {{baseUrl}}/api/libros/1
+Authorization: Bearer {{login.response.body.token}}
+Content-Type: application/json
+
+{
+  "titulo": "No tengo boca y debo gritar",
+  "autorId": 1,
+  "imagen": "https://covers.openlibrary.org/b/id/8571799-L.jpg",
+  "descripcion": "Descripción actualizada de esta obra maestra."
+}
+
+### Eliminar un libro (Requiere Token)
+DELETE {{baseUrl}}/api/libros/1
+Authorization: Bearer {{login.response.body.token}}
+
+### PRUEBAS DE MANEJO DE ERRORES
+
+### 404 - Obtener un libro que no existe
+GET {{baseUrl}}/api/libros/999
+
+### 400 - Sin título y con autorId inválido
+POST {{baseUrl}}/api/libros
+Authorization: Bearer {{login.response.body.token}}
+Content-Type: application/json
+
+{ 
+  "descripcion": "Un libro sin título", 
+  "imagen": "https://...", 
+  "autorId": "no-es-un-numero" 
+}
+
+### 400 - ID inválido en la URL
+GET {{baseUrl}}/api/libros/abc
+
+### 400 - El autor no existe (autorId inexistente)
+POST {{baseUrl}}/api/libros
+Authorization: Bearer {{login.response.body.token}}
+Content-Type: application/json
+
+{ 
+  "titulo": "Huérfano", 
+  "descripcion": "Descripción válida", 
+  "imagen": "https://...", 
+  "autorId": 9999 
+}
+
+### PRUEBAS - Verificación de roles en alta de libro
+
+### Registrar un usuario CLIENTE (rol por defecto, o especificalo si tu endpoint lo permite)
+POST {{baseUrl}}/api/auth/registro
+Content-Type: application/json
+
+{
+  "nombre": "Juan 2",
+  "email": "cliente2@libreria.test",
+  "password": "Cliente12"
+}
+
+### Login como CLIENTE (captura el token en variable separada)
+# @name loginCliente
+POST {{baseUrl}}/api/auth/login
+Content-Type: application/json
+
+{
+  "email": "cliente@libreria.test",
+  "password": "Cliente1234"
+}
+
+### Caso 1 - Alta SIN token (esperado: 401)
+POST {{baseUrl}}/api/libros
+Content-Type: application/json
+
+{
+  "titulo": "Test sin token",
+  "autorId": 2,
+  "imagen": "https://ejemplo.com/test.jpg",
+  "descripcion": "No debería crearse"
+}
+
+### Caso 2 - Alta con token de CLIENTE (esperado: 403)
+POST {{baseUrl}}/api/libros
+Authorization: Bearer {{loginCliente.response.body.token}}
+Content-Type: application/json
+
+{
+  "titulo": "Test con cliente",
+  "autorId": 2,
+  "imagen": "https://ejemplo.com/test.jpg",
+  "descripcion": "No debería crearse, rol insuficiente"
+}
+
+### Caso 3 - Alta con token de ADMIN (esperado: 201)
+POST {{baseUrl}}/api/libros
+Authorization: Bearer {{login.response.body.token}}
+Content-Type: application/json
+
+{
+  "titulo": "Test con admin",
+  "autorId": 2,
+  "imagen": "https://ejemplo.com/test.jpg",
+  "descripcion": "Debería crearse OK"
+}
+
+### Error 404
+GET {{baseUrl}}/api/libros/999
