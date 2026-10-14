@@ -4,17 +4,13 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { useNavigate } from 'react-router-dom';
 import { Container, Typography, TextField, Button, Alert, Box } from '@mui/material';
 import { loginSchema, type LoginFormData } from '../schemas/loginSchema';
-import { apiFetch } from '../services/api';
-import { guardarToken } from '../services/sesion';
+import {useAuth} from '../context/AuthContext';
 
-interface Sesion {
-  token: string;
-  usuario: { id: number; email: string; nombre: string; rol: string };
-}
 
 export default function Login() {
   const [errorApi, setErrorApi] = useState<string | null>(null);
   const navigate = useNavigate();
+  const {login} = useAuth();
   
   const { register, handleSubmit, formState: { errors, isSubmitting } } = useForm<LoginFormData>({
     resolver: zodResolver(loginSchema)
@@ -23,12 +19,8 @@ export default function Login() {
   const onSubmit = async (datos: LoginFormData) => {
     setErrorApi(null);
     try {
-      const sesion = await apiFetch<Sesion>('/auth/login', {
-        method: 'POST',
-        body: JSON.stringify(datos)
-      });
-      guardarToken(sesion.token);
-      navigate('/libros');
+      await login(datos);
+      navigate('/catalogo');
     } catch (err) {
       if (err instanceof Error) {
         setErrorApi(err.message);
