@@ -40,6 +40,11 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     setUsuario(null);
   }, []);
 
+  useEffect(() => {
+  window.addEventListener('sesion-expirada', logout);
+  return () => window.removeEventListener('sesion-expirada', logout);
+  }, [logout]);
+
   const value: AuthContextType = {
     usuario,
     cargando,
