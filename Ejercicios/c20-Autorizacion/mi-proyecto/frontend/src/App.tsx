@@ -1,0 +1,27 @@
+import { Routes, Route} from 'react-router-dom';
+import Home from './pages/Home'
+import Catalogo from './pages/Catalogo';
+import LibroDetalle from './pages/LibroDetalle';
+import Layout from './components/Layout/Layout'
+import LibroNuevo from './pages/LibroNuevo';
+import Login from './pages/Login';
+import { AuthProvider } from './context/AuthContext';
+
+function App() {
+
+  return (
+    <AuthProvider>
+      <Layout>
+        <Routes>
+         <Route path="/" element={<Home />} />
+         <Route path="/catalogo" element={<Catalogo />} />
+         <Route path="/libros/:id" element={<LibroDetalle />} />
+         <Route path= "/libros/nuevo" element={<LibroNuevo />}/>
+         <Route path="/login" element={<Login />} />
+         <Route path="*" element={<Home />} /> 
+        </Routes>
+      </Layout>
+    </AuthProvider>
+  );
+}
+export default App
