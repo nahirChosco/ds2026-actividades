@@ -1,0 +1,112 @@
+
+.navbar-fondo {
+  background-color: white !important;
+  color: black !important;
+}
+
+.navbar-icono {
+  color: #d32f2f !important;
+  margin-right: 10px;
+}
+
+.navbar-titulo {
+  font-weight: bold !important;
+  margin-right: 30px;
+}
+
+.navbar-enlaces {
+  display: flex;
+  gap: 15px;
+}
+
+.btn-enlace {
+  color: #666 !important;
+  text-transform: none !important;
+}
+
+.hero {
+  height: 400px;
+  background-image: url('https://images.unsplash.com/photo-1507842217343-583bb7270b66?q=80&w=2000');
+  background-size: cover; 
+  background-position: center;
+  display: flex;
+  flex-direction: column; 
+  justify-content: center; 
+  align-items: center; 
+  text-align: center;
+  background-color: rgba(0, 0, 0, 0.6);
+  background-blend-mode: overlay;
+  padding: 20px;
+}
+
+.texto {
+  color: white;
+  margin-bottom: 15px ;
+}
+.Footer{
+  background-color: white !important;
+  color: rgb(110, 93, 93) !important;
+  padding: 24px 0; 
+  text-align: center;
+  margin-top: auto; 
+  box-shadow: 0px -1px 4px rgba(0,0,0,0.1); 
+}
+body {
+  background-color: #f5f5f5 !important; 
+}
+
+.detalle-container {
+  margin-top: 40px !important;
+  margin-bottom: 40px !important;
+  text-align: left; /* Fuerzo a que todo vaya a la izquierda */
+}
+
+.btn-volver {
+  margin-bottom: 30px !important;
+  text-transform: uppercase !important;
+}
+
+.detalle-grid {
+  align-items: center;
+}
+
+.detalle-imagen {
+  width: 100%;
+  border-radius: 8px;
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.detalle-info {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; 
+}
+
+.detalle-titulo {
+  font-weight: bold !important;
+  color: #212121 !important; 
+  margin-bottom: 8px !important;
+}
+
+.detalle-autor {
+  color: #757575 !important;
+  margin-bottom: 32px !important;
+}
+
+.detalle-descripcion {
+  font-size: 1.1rem !important;
+  line-height: 1.8 !important;
+  color: #424242 !important;
+  margin-bottom: 16px !important;
+  text-align: left;
+}
+
+.detalle-id {
+  color: #1976d2 !important;
+  margin-top: 32px !important;
+  margin-bottom: 16px !important;
+}
+
+.btn-comprar {
+  margin-top: 16px !important;
+}
