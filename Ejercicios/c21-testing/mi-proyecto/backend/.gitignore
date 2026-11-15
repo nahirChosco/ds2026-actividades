@@ -1,0 +1,12 @@
+# Dependencias
+node_modules/
+
+# Variables de entorno 
+.env
+
+# Archivos compilados 
+dist/
+build/
+
+# Archivos autogenerados por Prisma
+src/generated/prisma/
