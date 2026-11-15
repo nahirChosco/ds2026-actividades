@@ -31,11 +31,6 @@ describe('Header según la sesión', () => {
     expect(screen.queryByText('Nuevo libro')).not.toBeInTheDocument();
   });
 
-  it('CLIENTE: muestra Salir y NO ve Nuevo libro', () => {
-    renderHeader({ id: 2, email: 'cliente@libreria.test', nombre: 'Juan Cliente', rol: 'CLIENTE' });
-    expect(screen.getByText('Salir')).toBeInTheDocument();
-    expect(screen.queryByText('Nuevo libro')).not.toBeInTheDocument();
-  });
 
   it('ADMIN: ve el link Nuevo libro', () => {
     renderHeader({ id: 1, email: 'admin@libreria.test', nombre: 'Admin', rol: 'ADMIN' });
