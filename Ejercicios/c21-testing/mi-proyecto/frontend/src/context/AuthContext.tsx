@@ -2,8 +2,8 @@ import { createContext, useCallback, useContext, useEffect, useState, type React
 import { apiFetch } from '../services/api';
 import { obtenerToken, guardarToken, borrarToken } from '../services/sesion';
 import type { Usuario, Rol, Sesion, Credenciales } from '../types/sesionType';
-
-interface AuthContextType {
+/* eslint-disable react-refresh/only-export-components */
+export interface AuthContextType {
   usuario: Usuario | null;
   cargando: boolean;
   estaAutenticado: boolean;
@@ -12,7 +12,7 @@ interface AuthContextType {
   logout: () => void;
 }
 
-const AuthContext = createContext<AuthContextType | null>(null);
+export const AuthContext = createContext<AuthContextType | null>(null);
 
 export function AuthProvider({ children }: { children: ReactNode }) {
   const [usuario, setUsuario] = useState<Usuario | null>(null);
